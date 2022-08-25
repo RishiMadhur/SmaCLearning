@@ -216,6 +216,11 @@
   resolved "https://registry.npmjs.org/@humanwhocodes/object-schema/-/object-schema-1.2.1.tgz"
   integrity sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==
 
+"@jitsi/react-sdk@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@jitsi/react-sdk/-/react-sdk-1.0.2.tgz#9fb077d1dac26d22db45fab85940e467fd7d3df9"
+  integrity sha512-GCmRGOY7bIPrWcQxCkwZciuoKu2wi2aO95ESM2tchmPnaJkXZqynYAeKW4ogNtpH4bEyRj8YupXgOoqWEyKBBw==
+
 "@material-ui/core@^4.12.4":
   version "4.12.4"
   resolved "https://registry.yarnpkg.com/@material-ui/core/-/core-4.12.4.tgz#4ac17488e8fcaf55eb6a7f5efb2a131e10138a73"

@@ -25,15 +25,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/facultylogin": [
+    "/classroom": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/facultylogin.js"
-    ],
-    "/studentlogin": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/studentlogin.js"
+      "static/chunks/pages/classroom.js"
     ]
   },
   "ampFirstPages": []
