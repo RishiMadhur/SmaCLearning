@@ -1,0 +1,77 @@
+version: '3.9'
+
+networks:
+  smaclearning:
+    external: true
+
+services:
+
+  ca_adminstrator:
+    image: hyperledger/fabric-ca
+    environment:
+      - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
+      - FABRIC_CA_SERVER_CA_NAME=ca_adminstrator
+      - FABRIC_CA_SERVER_TLS_ENABLED=true
+      - FABRIC_CA_SERVER_PORT=1010
+    ports:
+      - "1010:1010"
+    command: sh -c 'fabric-ca-server start -b admin:adminpw -d'
+    volumes:
+      - ../consortium/fabric-ca/ca_adminstrator:/etc/hyperledger/fabric-ca-server
+      # - /var/rishi/ca-adminstrator1:/etc/hyperledger
+    container_name: ca.adminstrator
+    hostname: ca.adminstrator
+    networks:
+      - smaclearning
+
+  ca_teacher:
+    image: hyperledger/fabric-ca
+    environment:
+        - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
+        - FABRIC_CA_SERVER_CA_NAME=ca_admin
+        - FABRIC_CA_SERVER_TLS_ENABLED=true
+        - FABRIC_CA_SERVER_PORT=1020
+    ports:
+        - "1020:1020"
+    command: sh -c 'fabric-ca-server start -b admin:adminpw -d'
+    volumes:
+        - ../consortium/fabric-ca/ca_teacher:/etc/hyperledger/fabric-ca-server
+        # - /var/rishi/ca-adminstrator2:/etc/hyperledger
+    container_name: ca.teacher
+    hostname: ca.teacher
+    networks:
+        - smaclearning
+
+  ca_student:
+    image: hyperledger/fabric-ca
+    environment:
+        - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
+        - FABRIC_CA_SERVER_CA_NAME=ca_admin
+        - FABRIC_CA_SERVER_TLS_ENABLED=true
+        - FABRIC_CA_SERVER_PORT=1040
+    ports:
+        - "1040:1040"
+    command: sh -c 'fabric-ca-server start -b admin:adminpw -d'
+    volumes:
+        - ../consortium/fabric-ca/ca_student:/etc/hyperledger/fabric-ca-server
+        # - /var/rishi/ca-adminstrator2:/etc/hyperledger
+    container_name: ca.student
+    hostname: ca.student
+    networks:
+        - smaclearning
+  ca_orderer:
+    image: hyperledger/fabric-ca
+    environment:
+          - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
+          - FABRIC_CA_SERVER_CA_NAME=ca_admin
+          - FABRIC_CA_SERVER_TLS_ENABLED=true
+          - FABRIC_CA_SERVER_PORT=1030
+    ports:
+          - "1030:1030"
+    command: sh -c 'fabric-ca-server start -b admin:adminpw -d'
+    volumes:
+          - ../consortium/fabric-ca/ordererOrg:/etc/hyperledger/fabric-ca-server
+          # - /var/rishi/orderer:/etc/hyperledger
+    container_name: ca_orderer
+    networks:
+          - smaclearning
